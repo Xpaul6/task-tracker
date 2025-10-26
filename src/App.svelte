@@ -6,7 +6,7 @@
   import checkmark_img from "./assets/check.png";
 
   let taskList = $state([]);
-  let tasksAmount = $derived(taskList.length);
+  let tasksAmount = $derived(taskList.filter(task => !task.completed).length);
   let currentInput = $state("");
 
   function init() {
@@ -36,7 +36,7 @@
   }
 
   function handleKeyDown(e) {
-    if (e.key == "Enter" && currentInput.trim() != "") {
+    if (e.key == "Enter") {
       addTask();
     }
   }
@@ -47,7 +47,7 @@
 </script>
 
 <svelte:head>
-  <title>{tasksAmount} tasks left</title>
+  <title>{tasksAmount == 0 ? "No " : tasksAmount} tasks left</title>
 </svelte:head>
 <svelte:window onkeydown={handleKeyDown} />
 
