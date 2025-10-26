@@ -6,6 +6,7 @@
   import checkmark_img from "./assets/check.png";
 
   let taskList = $state([]);
+  let tasksAmount = $derived(taskList.length);
   let currentInput = $state("");
 
   function init() {
@@ -40,11 +41,14 @@
     }
   }
 
-  init();
-
-  onMount(() => {});
+  onMount(() => {
+    init();
+  });
 </script>
 
+<svelte:head>
+  <title>{tasksAmount} tasks left</title>
+</svelte:head>
 <svelte:window onkeydown={handleKeyDown} />
 
 <main class="absolute w-[100%] h-[100%] flex items-center justify-center">
@@ -55,6 +59,7 @@
         class="relative p-1 w-[100%] focus:outline-none"
         type="text"
         bind:value={currentInput}
+        placeholder="Enter new task"
       />
       <button
         class="px-2 relative my-0.5 hover:cursor-pointer active:bg-gray-200 active:rounded-sm text-l"
@@ -90,7 +95,7 @@
           <h2>Done:</h2>
         </div>
       {/if}
-      {#each taskList.filter((task) => task.completed) as task}
+      {#each taskList.filter((task) => task.completed) as task (task.id)}
         <button
           class="flex flex-row justify-center w-[100%]"
           id={task.id}
