@@ -90,11 +90,11 @@
             class="flex justify-self-start text-xl hover:cursor-pointer"
             onclick={() => completeTask(task.id)}
           >
-            <img src={checkmark_img} alt="" class="m-1 size-5" />
+            <img src={checkmark_img} alt="" class="m-1 size-5 brightness-0 hover:brightness-100 transition duration-150" />
           </button>
           <div class="flex text-xl">{task.text}</div>
           <button
-            class="flex justify-self-end hover:cursor-pointer"
+            class="flex justify-self-end hover:cursor-pointer brightness-0 hover:brightness-100 transition duration-150"
             onclick={() => deleteTask(task.id)}
           >
             <img src={bin_img} alt="" class="m-1 size-5" />
@@ -117,7 +117,7 @@
           onclick={() => deleteTask(task.id)}
           transition:slide
         >
-          <div class="flex text-xl hover:text-red-500 hover:cursor-pointer">
+          <div class="flex text-xl hover:text-red-500 hover:cursor-pointer transition duration-150">
             {task.text}
           </div>
         </button>
