@@ -12,7 +12,9 @@
   }
 
   let taskList = $state<Task[]>([]);
-  let tasksAmount = $derived<number>(taskList.filter((task) => !task.completed).length);
+  let tasksAmount = $derived<number>(
+    taskList.filter((task) => !task.completed).length,
+  );
   let currentInput = $state<string>("");
 
   function init() {
@@ -63,13 +65,13 @@
 </svelte:head>
 <svelte:window onkeydown={handleKeyDown} />
 
-<main class="absolute w-[100%] h-[100%] flex items-center justify-center">
+<main class="absolute w-full h-full flex items-center justify-center">
   <div class="task-tracker min-w-[300px]">
     <h1>Your tasks</h1>
     <!-- input block  -->
     <div class="flex flex-row border-blue-500 border-2 rounded-md">
       <input
-        class="relative p-1 w-[100%] focus:outline-none"
+        class="relative p-1 w-full focus:outline-none"
         type="text"
         bind:value={currentInput}
         placeholder="Enter new task"
@@ -90,7 +92,11 @@
             class="flex justify-self-start text-xl hover:cursor-pointer"
             onclick={() => completeTask(task.id)}
           >
-            <img src={checkmark_img} alt="" class="m-1 size-5 brightness-0 hover:brightness-100 transition duration-150" />
+            <img
+              src={checkmark_img}
+              alt=""
+              class="m-1 size-5 brightness-0 hover:brightness-100 transition duration-150"
+            />
           </button>
           <div class="flex text-xl">{task.text}</div>
           <button
@@ -112,12 +118,14 @@
       {/if}
       {#each taskList.filter((task) => task.completed) as task (task.id)}
         <button
-          class="flex flex-row justify-center w-[100%]"
+          class="flex flex-row justify-center w-full"
           id={task.id}
           onclick={() => deleteTask(task.id)}
           transition:slide
         >
-          <div class="flex text-xl hover:text-red-500 hover:cursor-pointer transition duration-150">
+          <div
+            class="flex text-xl hover:text-red-500 hover:cursor-pointer transition duration-150"
+          >
             {task.text}
           </div>
         </button>
