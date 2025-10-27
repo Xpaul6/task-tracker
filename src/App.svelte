@@ -1,41 +1,53 @@
-<script>
+<script lang="ts">
   import { slide } from "svelte/transition";
   import { onMount } from "svelte";
 
   import bin_img from "./assets/bin.png";
   import checkmark_img from "./assets/check.png";
 
-  let taskList = $state([]);
-  let tasksAmount = $derived(taskList.filter(task => !task.completed).length);
-  let currentInput = $state("");
+  interface Task {
+    id: string;
+    text: string;
+    completed: boolean;
+  }
+
+  let taskList = $state<Task[]>([]);
+  let tasksAmount = $derived<number>(taskList.filter((task) => !task.completed).length);
+  let currentInput = $state<string>("");
 
   function init() {
     if (!localStorage.getItem("tasks")) {
       localStorage.setItem("tasks", JSON.stringify([]));
     } else {
-      taskList = JSON.parse(localStorage.getItem("tasks"));
+      taskList = JSON.parse(localStorage.getItem("tasks")) as Task[];
     }
   }
 
   function addTask() {
     if (currentInput.trim() == "") return;
-    let uuid = crypto.randomUUID();
-    taskList.push({ id: uuid, text: currentInput, completed: false });
+
+    let newTask: Task = {
+      id: crypto.randomUUID(),
+      text: currentInput,
+      completed: false,
+    };
+    taskList.push(newTask);
     currentInput = "";
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }
 
-  function deleteTask(deleteId) {
+  function deleteTask(deleteId: string) {
     taskList = taskList.filter((task) => task.id != deleteId);
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }
 
-  function completeTask(completeId) {
-    taskList.find((task) => task.id == completeId).completed = true;
+  function completeTask(completeId: string) {
+    const task: Task = taskList.find((task) => task.id == completeId);
+    if (task) task.completed = true;
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }
 
-  function handleKeyDown(e) {
+  function handleKeyDown(e: KeyboardEvent) {
     if (e.key == "Enter") {
       addTask();
     }
@@ -54,7 +66,8 @@
 <main class="absolute w-[100%] h-[100%] flex items-center justify-center">
   <div class="task-tracker min-w-[300px]">
     <h1>Your tasks</h1>
-    <div class="input-block flex flex-row border-blue-500 border-2 rounded-md">
+    <!-- input block  -->
+    <div class="flex flex-row border-blue-500 border-2 rounded-md">
       <input
         class="relative p-1 w-[100%] focus:outline-none"
         type="text"
@@ -68,7 +81,8 @@
         ↵
       </button>
     </div>
-    <div class="tasks mt-2">
+    <!-- tasks block -->
+    <div class="mt-2">
       <h2>Active:</h2>
       {#each taskList.filter((task) => !task.completed) as task (task.id)}
         <div class="flex flex-row justify-between" transition:slide>
@@ -89,6 +103,7 @@
       {:else}
         <div transition:slide>None</div>
       {/each}
+      <!-- done tasks heading -->
       {#if taskList.filter((task) => task.completed).length != 0}
         <div transition:slide>
           <div class="border-b-2 border-gray-500 my-1"></div>
