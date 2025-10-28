@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import soundfx from "../assets/notification.mp3";
 
+  const notificationfx = new Audio(soundfx);
   const baseFocusInterval = 25 * 60;
 
   // settings
@@ -61,7 +63,7 @@
   // timer state controller
   $effect(() => {
     if (stateSwitchCounter > 1) {
-      // TODO: play sound
+      notificationfx.play();
       resetTimer();
     }
   });
