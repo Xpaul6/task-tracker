@@ -1,6 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
+
   import soundfx from "../assets/notification.mp3";
+  import playIcon from "../assets/play.svg";
+  import pauseIcon from "../assets/pause.svg";
+  import resetIcon from "../assets/reset.svg";
+  import skipIcon from "../assets/skip.svg";
 
   const notificationfx = new Audio(soundfx);
   const baseFocusInterval = 25 * 60;
@@ -81,9 +86,15 @@
     </div>
     <!-- timer controls -->
     <div class="flex flex-row justify-around">
-      <button class="timer-button" onclick={toggleTimer}>P</button>
-      <button class="timer-button" onclick={resetTimer}>R</button>
-      <button class="timer-button" onclick={skipState}>S</button>
+      <button class="timer-button" onclick={toggleTimer}>
+        <img src={isGoing ? pauseIcon : playIcon} alt="">
+      </button>
+      <button class="timer-button" onclick={resetTimer}>
+        <img src={resetIcon} alt="">
+      </button>
+      <button class="timer-button" onclick={skipState}>
+        <img src={skipIcon} alt="">
+      </button>
     </div>
   </div>
 </div>
