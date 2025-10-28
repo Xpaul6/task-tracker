@@ -2,14 +2,24 @@
 @tailwind utilities;
 
 @theme {
-    --default-font-family: 'SF Mono', monospace;
+    --default-font-family: "SF Mono", monospace;
 }
 
 @layer base {
-  h1 {
-    @apply text-3xl font-bold
-  }
-  h2 {
-    @apply text-2xl
-  }
+    h1 {
+        @apply text-3xl font-bold;
+    }
+    h2 {
+        @apply text-2xl;
+    }
+}
+
+@layer components {
+    .component-box {
+        @apply min-w-[300px] p-8 border-2 border-gray-300 rounded-xl;
+    }
+    .timer-button {
+        @apply text-2xl rounded-full border-2 border-blue-300 p-2 hover:bg-blue-300
+            hover:cursor-pointer transition duration-150;
+    }
 }

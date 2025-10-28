@@ -65,10 +65,10 @@
 </svelte:head>
 <svelte:window onkeydown={handleKeyDown} />
 
-<div class="task-tracker min-w-[300px] p-8 border-2 border-gray-300 rounded-xl">
-  <h1>Your tasks</h1>
+<div class="component-box">
+  <h1 class="text-center mb-5">Your tasks</h1>
   <!-- input block  -->
-  <div class="flex flex-row border-blue-500 border-2 rounded-md">
+  <div class="flex flex-row border-blue-300 border-2 rounded-md">
     <input
       class="relative p-1 w-full focus:outline-none"
       type="text"
