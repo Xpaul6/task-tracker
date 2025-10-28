@@ -15,6 +15,7 @@
   let tasksAmount = $derived<number>(
     taskList.filter((task) => !task.completed).length,
   );
+  let { tasksRemaining = $bindable<string>(), ...props } = $props();
   let currentInput = $state<string>("");
 
   function init() {
@@ -55,14 +56,15 @@
     }
   }
 
+  $effect(() => {
+    tasksRemaining = tasksAmount;
+  });
+
   onMount(() => {
     init();
   });
 </script>
 
-<svelte:head>
-  <title>{tasksAmount == 0 ? "No " : tasksAmount} tasks left</title>
-</svelte:head>
 <svelte:window onkeydown={handleKeyDown} />
 
 <div class="component-box">

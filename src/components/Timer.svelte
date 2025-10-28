@@ -21,6 +21,7 @@
   let isGoing = $state<boolean>(false);
   let stateSwitchCounter = $state<number>(1);
   let timerTitle = $state<string>("Focus");
+  let { formatedTimerString = $bindable<string>(), ...props } = $props();
 
   // functions
   function formatTime(s: number): string {
@@ -59,6 +60,7 @@
     let timer: any;
     if (remainingTime > 0 && isGoing) {
       timer = setInterval(() => (remainingTime -= 1), 1000);
+      formatedTimerString = formatedTime;
     } else if (remainingTime == 0) {
       stateSwitchCounter++;
     }
@@ -73,7 +75,9 @@
     }
   });
 
-  // onMount(() => console.log(remainingTime));
+  onMount(() => {
+    formatedTimerString = formatedTime;
+  });
 </script>
 
 <div class="component-box">
@@ -87,13 +91,13 @@
     <!-- timer controls -->
     <div class="flex flex-row justify-around">
       <button class="timer-button" onclick={toggleTimer}>
-        <img src={isGoing ? pauseIcon : playIcon} alt="">
+        <img src={isGoing ? pauseIcon : playIcon} alt="" />
       </button>
       <button class="timer-button" onclick={resetTimer}>
-        <img src={resetIcon} alt="">
+        <img src={resetIcon} alt="" />
       </button>
       <button class="timer-button" onclick={skipState}>
-        <img src={skipIcon} alt="">
+        <img src={skipIcon} alt="" />
       </button>
     </div>
   </div>
