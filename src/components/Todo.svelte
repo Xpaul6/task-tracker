@@ -96,7 +96,7 @@
           <img
             src={checkmark_img}
             alt=""
-            class="m-1 size-5 brightness-0 hover:brightness-100 transition duration-150"
+            class="m-1 size-5 brightness-0 hover:brightness-100"
           />
         </button>
         <div class="flex text-xl mx-1.5">{task.text}</div>
@@ -107,7 +107,7 @@
           <img
             src={bin_img}
             alt=""
-            class="m-1 size-5 brightness-0 hover:brightness-100 transition duration-150"
+            class="m-1 size-5 brightness-0 hover:brightness-100"
           />
         </button>
       </div>
@@ -129,7 +129,7 @@
         transition:slide
       >
         <div
-          class="flex text-xl hover:text-red-500 hover:cursor-pointer transition duration-150"
+          class="flex text-xl hover:text-red-500 hover:cursor-pointer"
         >
           {task.text}
         </div>

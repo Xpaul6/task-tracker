@@ -16,7 +16,7 @@
   class={`absolute w-full h-full flex items-center justify-around ${theme}`}
 >
   <ThemeSwitch bind:theme />
-  <div class="w-full md:w-[80%] flex flex-row flex-wrap justify-around items-center">
+  <div class="w-full md:w-[80%] flex flex-row flex-wrap justify-around items-center rounded-xl">
     <Timer bind:formatedTimerString />
     <ToDo bind:tasksRemaining />
   </div>
