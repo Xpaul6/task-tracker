@@ -21,6 +21,6 @@
   });
 </script>
 
-<div class="fixed top-0 right-0 mt-3 mr-3 hover:cursor-pointer">
-  <button onclick={changeTheme}> S </button>
+<div class="fixed top-0 right-0 mt-3 mr-3 rounded-md hover:cursor-pointer">
+  <button class="p-1 hover:cursor-pointer" onclick={changeTheme}> S </button>
 </div>

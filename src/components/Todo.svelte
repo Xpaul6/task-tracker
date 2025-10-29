@@ -78,14 +78,14 @@
       placeholder="Enter new task"
     />
     <button
-      class="px-2 relative my-0.5 hover:cursor-pointer active:bg-gray-200 active:rounded-sm text-l"
+      class="px-2 relative m-0.5 hover:cursor-pointer active:bg-gray-200 dark:active:text-black rounded-sm text-l"
       onclick={addTask}
     >
       ↵
     </button>
   </div>
   <!-- tasks block -->
-  <div class="mt-2 max-h-[500px] overflow-y-scroll p-2 min-w-[300px]">
+  <div class="mt-2 max-h-[300px] overflow-y-scroll p-2 min-w-[300px]">
     <h2>Active:</h2>
     {#each taskList.filter((task) => !task.completed) as task (task.id)}
       <div class="flex flex-row justify-between m-1.5" transition:slide>
