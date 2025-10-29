@@ -24,7 +24,7 @@
         @apply min-w-[300px] p-8 border-2 border-gray-300 rounded-xl m-5;
     }
 
-    button img {
+    .icon-button img, .timer-button img {
         @apply dark:bg-transparent dark:invert;
     }
 
