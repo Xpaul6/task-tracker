@@ -7,7 +7,7 @@ Application for tracking your tasks and focus on work with pomodoro technique.
  - Serverless architecture (tasks are saved in browser)
 
 ## Screenshot
-*screenshot placeholder*
+<img width="1192" height="888" alt="image" src="https://github.com/user-attachments/assets/c58184fc-9a45-4d96-abf7-42800ae2d5e7" />
 
 # ToDo
  - [x] Dark theme
