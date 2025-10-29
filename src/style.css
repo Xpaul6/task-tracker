@@ -1,11 +1,16 @@
 @import "tailwindcss";
 @tailwind utilities;
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     --default-font-family: "SF Mono", monospace;
-}
+} 
 
 @layer base {
+    * {
+      @apply dark:text-white dark:bg-gray-900;
+    }
     h1 {
         @apply text-3xl font-bold;
     }
@@ -21,5 +26,8 @@
     .timer-button {
         @apply text-2xl rounded-full border-2 border-blue-300 p-2 hover:bg-blue-300
             hover:cursor-pointer transition duration-150;
+    }
+    img {
+        @apply dark:bg-transparent dark:invert dark:hover:invert-0;
     }
 }

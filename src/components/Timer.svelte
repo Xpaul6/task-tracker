@@ -91,13 +91,13 @@
     <!-- timer controls -->
     <div class="flex flex-row justify-around">
       <button class="timer-button" onclick={toggleTimer}>
-        <img src={isGoing ? pauseIcon : playIcon} alt="" />
+        <img src={isGoing ? pauseIcon : playIcon} alt="P" />
       </button>
       <button class="timer-button" onclick={resetTimer}>
-        <img src={resetIcon} alt="" />
+        <img src={resetIcon} alt="R" />
       </button>
       <button class="timer-button" onclick={skipState}>
-        <img src={skipIcon} alt="" />
+        <img src={skipIcon} alt="S" />
       </button>
     </div>
   </div>

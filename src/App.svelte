@@ -1,9 +1,11 @@
 <script lang="ts">
   import ToDo from "./components/Todo.svelte";
   import Timer from "./components/Timer.svelte";
+  import ThemeSwitch from "./components/ThemeSwitch.svelte";
 
   let formatedTimerString = $state<string>();
   let tasksRemaining = $state<string>();
+  let theme = $state<string>();
 </script>
 
 <svelte:head>
@@ -11,8 +13,9 @@
 </svelte:head>
 
 <main
-  class="absolute w-full h-full flex items-center justify-around"
+  class={`absolute w-full h-full flex items-center justify-around ${theme}`}
 >
+  <ThemeSwitch bind:theme />
   <div class="w-full md:w-[80%] flex flex-row flex-wrap justify-around items-center">
     <Timer bind:formatedTimerString />
     <ToDo bind:tasksRemaining />
