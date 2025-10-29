@@ -101,10 +101,14 @@
         </button>
         <div class="flex text-xl mx-1.5">{task.text}</div>
         <button
-          class="flex justify-self-end hover:cursor-pointer brightness-0 hover:brightness-100 transition duration-150"
+          class="flex justify-self-end hover:cursor-pointer"
           onclick={() => deleteTask(task.id)}
         >
-          <img src={bin_img} alt="" class="m-1 size-5" />
+          <img
+            src={bin_img}
+            alt=""
+            class="m-1 size-5 brightness-0 hover:brightness-100 transition duration-150"
+          />
         </button>
       </div>
     {:else}
