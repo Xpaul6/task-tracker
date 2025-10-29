@@ -11,8 +11,10 @@
 </svelte:head>
 
 <main
-  class="absolute w-full h-full flex items-center justify-around flex-wrap flex-row-reverse"
+  class="absolute w-full h-full flex items-center justify-around"
 >
-  <ToDo bind:tasksRemaining />
-  <Timer bind:formatedTimerString />
+  <div class="w-full md:w-[80%] flex flex-row flex-wrap justify-around items-center">
+    <Timer bind:formatedTimerString />
+    <ToDo bind:tasksRemaining />
+  </div>
 </main>

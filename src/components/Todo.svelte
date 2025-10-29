@@ -85,10 +85,10 @@
     </button>
   </div>
   <!-- tasks block -->
-  <div class="mt-2">
+  <div class="mt-2 max-h-[500px] overflow-y-scroll p-2 min-w-[300px]">
     <h2>Active:</h2>
     {#each taskList.filter((task) => !task.completed) as task (task.id)}
-      <div class="flex flex-row justify-between" transition:slide>
+      <div class="flex flex-row justify-between m-1.5" transition:slide>
         <button
           class="flex justify-self-start text-xl hover:cursor-pointer"
           onclick={() => completeTask(task.id)}
@@ -99,7 +99,7 @@
             class="m-1 size-5 brightness-0 hover:brightness-100 transition duration-150"
           />
         </button>
-        <div class="flex text-xl">{task.text}</div>
+        <div class="flex text-xl mx-1.5">{task.text}</div>
         <button
           class="flex justify-self-end hover:cursor-pointer brightness-0 hover:brightness-100 transition duration-150"
           onclick={() => deleteTask(task.id)}

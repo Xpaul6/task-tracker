@@ -57,10 +57,10 @@
 
   // timer controller
   $effect(() => {
+    formatedTimerString = formatedTime;
     let timer: any;
     if (remainingTime > 0 && isGoing) {
       timer = setInterval(() => (remainingTime -= 1), 1000);
-      formatedTimerString = formatedTime;
     } else if (remainingTime == 0) {
       stateSwitchCounter++;
     }

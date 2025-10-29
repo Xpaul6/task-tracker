@@ -16,7 +16,7 @@
 
 @layer components {
     .component-box {
-        @apply min-w-[300px] p-8 border-2 border-gray-300 rounded-xl;
+        @apply min-w-[300px] p-8 border-2 border-gray-300 rounded-xl m-5;
     }
     .timer-button {
         @apply text-2xl rounded-full border-2 border-blue-300 p-2 hover:bg-blue-300
