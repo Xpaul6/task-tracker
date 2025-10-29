@@ -90,24 +90,24 @@
     {#each taskList.filter((task) => !task.completed) as task (task.id)}
       <div class="flex flex-row justify-between m-1.5" transition:slide>
         <button
-          class="flex justify-self-start text-xl hover:cursor-pointer"
+          class="icon-button flex justify-self-start text-xl hover:cursor-pointer"
           onclick={() => completeTask(task.id)}
         >
           <img
             src={checkmark_img}
-            alt=""
-            class="m-1 size-5 brightness-0 hover:brightness-100"
+            alt="C"
+            class="m-1 size-5"
           />
         </button>
         <div class="flex text-xl mx-1.5">{task.text}</div>
         <button
-          class="flex justify-self-end hover:cursor-pointer"
+          class="icon-button flex justify-self-end hover:cursor-pointer"
           onclick={() => deleteTask(task.id)}
         >
           <img
             src={bin_img}
-            alt=""
-            class="m-1 size-5 brightness-0 hover:brightness-100"
+            alt="D"
+            class="m-1 size-5"
           />
         </button>
       </div>

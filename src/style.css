@@ -23,11 +23,22 @@
     .component-box {
         @apply min-w-[300px] p-8 border-2 border-gray-300 rounded-xl m-5;
     }
-    .timer-button {
-        @apply text-2xl rounded-full border-2 border-blue-300 p-2 hover:bg-blue-300
-            hover:cursor-pointer transition duration-150;
-    }
+
     button img {
-        @apply dark:bg-transparent dark:invert dark:hover:invert-0;
+        @apply dark:bg-transparent dark:invert;
+    }
+
+    .icon-button img {
+        @apply brightness-0;
+    }
+    .icon-button:hover img {
+        @apply brightness-100 invert-0;
+    }
+
+    .timer-button {
+        @apply text-2xl rounded-full border-2 border-blue-300 p-2 hover:bg-blue-300 hover:cursor-pointer;
+    }
+    .timer-button:hover img {
+        @apply dark:invert-0;
     }
 }
