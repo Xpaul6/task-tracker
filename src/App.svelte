@@ -13,7 +13,7 @@
 </svelte:head>
 
 <main
-  class={`absolute w-full h-full flex items-center justify-around ${theme}`}
+  class={`absolute overflow-scroll w-full min-h-full flex items-center justify-around`}
 >
   <ThemeSwitch bind:theme />
   <div class="w-full md:w-[80%] flex flex-row flex-wrap justify-around items-center rounded-xl">
