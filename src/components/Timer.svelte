@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  import TimerSettings from "./TimerSettings.svelte";
+
   import sound_fx from "../assets/notification.mp3";
   import play_icon from "../assets/play.svg";
   import pause_icon from "../assets/pause.svg";
@@ -71,8 +73,11 @@
   $effect(() => {
     if (stateSwitchCounter > 1) {
       notificationFx.play();
-      resetTimer();
     }
+  });
+
+  $effect(() => {
+    resetTimer();
   });
 
   onMount(() => {
@@ -80,7 +85,8 @@
   });
 </script>
 
-<div class="component-box">
+<div class="component-box pt-0">
+  <TimerSettings bind:focusInterval bind:shortPauseInterval bind:longPauseInterval/>
   <h1 class="text-center">Focus timer</h1>
   <h2 class="text-center">{timerTitle}</h2>
   <div class="flex flex-col">
