@@ -2,8 +2,8 @@
   import { slide } from "svelte/transition";
   import { onMount } from "svelte";
 
-  import bin_img from "../assets/bin.png";
-  import checkmark_img from "../assets/check.png";
+  import bin_icon from "../assets/bin.png";
+  import checkmark_icon from "../assets/check.png";
 
   interface Task {
     id: string;
@@ -26,7 +26,7 @@
     }
   }
 
-  function addTask() {
+  function addTask(): void {
     if (currentInput.trim() == "") return;
 
     let newTask: Task = {
@@ -39,18 +39,18 @@
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }
 
-  function deleteTask(deleteId: string) {
+  function deleteTask(deleteId: string): void {
     taskList = taskList.filter((task) => task.id != deleteId);
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }
 
-  function completeTask(completeId: string) {
+  function completeTask(completeId: string): void {
     const task: Task = taskList.find((task) => task.id == completeId);
     if (task) task.completed = true;
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }
 
-  function handleKeyDown(e: KeyboardEvent) {
+  function handleKeyDown(e: KeyboardEvent): void {
     if (e.key == "Enter") {
       addTask();
     }
@@ -93,22 +93,14 @@
           class="icon-button flex justify-self-start text-xl hover:cursor-pointer"
           onclick={() => completeTask(task.id)}
         >
-          <img
-            src={checkmark_img}
-            alt="C"
-            class="m-1 size-5"
-          />
+          <img src={checkmark_icon} alt="C" class="m-1 size-5" />
         </button>
         <div class="flex text-xl mx-1.5">{task.text}</div>
         <button
           class="icon-button flex justify-self-end hover:cursor-pointer"
           onclick={() => deleteTask(task.id)}
         >
-          <img
-            src={bin_img}
-            alt="D"
-            class="m-1 size-5"
-          />
+          <img src={bin_icon} alt="D" class="m-1 size-5" />
         </button>
       </div>
     {:else}
@@ -128,9 +120,7 @@
         onclick={() => deleteTask(task.id)}
         transition:slide
       >
-        <div
-          class="flex text-xl hover:text-red-500 hover:cursor-pointer"
-        >
+        <div class="flex text-xl hover:text-red-500 hover:cursor-pointer">
           {task.text}
         </div>
       </button>

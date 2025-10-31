@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import soundfx from "../assets/notification.mp3";
-  import playIcon from "../assets/play.svg";
-  import pauseIcon from "../assets/pause.svg";
-  import resetIcon from "../assets/reset.svg";
-  import skipIcon from "../assets/skip.svg";
+  import sound_fx from "../assets/notification.mp3";
+  import play_icon from "../assets/play.svg";
+  import pause_icon from "../assets/pause.svg";
+  import reset_icon from "../assets/reset.svg";
+  import skip_icon from "../assets/skip.svg";
 
-  const notificationfx = new Audio(soundfx);
+  const notificationFx = new Audio(sound_fx);
   const baseFocusInterval = 25 * 60;
 
   // settings
@@ -70,7 +70,7 @@
   // timer state controller
   $effect(() => {
     if (stateSwitchCounter > 1) {
-      notificationfx.play();
+      notificationFx.play();
       resetTimer();
     }
   });
@@ -91,13 +91,13 @@
     <!-- timer controls -->
     <div class="flex flex-row justify-around">
       <button class="timer-button" onclick={toggleTimer}>
-        <img src={isGoing ? pauseIcon : playIcon} alt="P" />
+        <img src={isGoing ? pause_icon : play_icon} alt="P" />
       </button>
       <button class="timer-button" onclick={resetTimer}>
-        <img src={resetIcon} alt="R" />
+        <img src={reset_icon} alt="R" />
       </button>
       <button class="timer-button" onclick={skipState}>
-        <img src={skipIcon} alt="S" />
+        <img src={skip_icon} alt="S" />
       </button>
     </div>
   </div>

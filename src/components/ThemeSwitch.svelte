@@ -6,7 +6,7 @@
 
   let { theme = $bindable<string>(), ...props } = $props();
 
-  function changeTheme() {
+  function changeTheme(): void {
     if (theme == "light") {
       theme = "dark";
       localStorage.setItem("theme", "dark");
