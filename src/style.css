@@ -9,7 +9,7 @@
 
 @layer base {
     * {
-      @apply dark:text-white dark:bg-zinc-900 transition duration-150;
+        @apply dark:text-white dark:bg-zinc-900 transition duration-150;
     }
     h1 {
         @apply text-3xl font-bold;

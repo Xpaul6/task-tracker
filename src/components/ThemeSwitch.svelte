@@ -31,7 +31,7 @@
   });
 </script>
 
-<div class="fixed top-0 right-0 mt-3 mr-3 rounded-md hover:cursor-pointer">
+<div class="fixed top-0 right-0 mt-1 mr-1 md:mt-3 md:mr-3 rounded-md hover:cursor-pointer">
   <button class="p-1 hover:cursor-pointer" onclick={changeTheme}>
     <img src={theme == "dark" ? sun_img : moon_img} class="size-5" alt="S" />
   </button>

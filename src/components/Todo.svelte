@@ -85,17 +85,17 @@
     </button>
   </div>
   <!-- tasks block -->
-  <div class="mt-2 max-h-[300px] overflow-y-scroll p-2 min-w-[300px]">
+  <div class="mt-2 max-h-[300px] overflow-y-scroll overflow-x-clip p-2 md:min-w-[300px]">
     <h2>Active:</h2>
     {#each taskList.filter((task) => !task.completed) as task (task.id)}
-      <div class="flex flex-row justify-between m-1.5" transition:slide>
+      <div class="flex flex-row justify-between m-1.5 w-full" transition:slide>
         <button
           class="icon-button flex justify-self-start text-xl hover:cursor-pointer"
           onclick={() => completeTask(task.id)}
         >
           <img src={checkmark_icon} alt="C" class="m-1 size-5" />
         </button>
-        <div class="flex text-xl mx-1.5">{task.text}</div>
+        <div class="flex justify-center w-[85%] text-xl text-center text-wrap overflow-x-scroll mx-1.5">{task.text}</div>
         <button
           class="icon-button flex justify-self-end hover:cursor-pointer"
           onclick={() => deleteTask(task.id)}

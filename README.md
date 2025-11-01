@@ -11,6 +11,6 @@ Application for tracking your tasks and focus on work with pomodoro technique.
 
 # ToDo
  - [x] Dark theme
- - [ ] Proper responsive layout
+ - [x] Proper responsive layout
  - [x] Ajustable pomodoro timer settings
  - [ ] ...new features?
