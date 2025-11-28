@@ -4,7 +4,7 @@
   import sun_img from "../assets/sun.png";
   import moon_img from "../assets/moon.png";
 
-  let { theme = $bindable<string>(), ...props } = $props();
+  let { theme = $bindable<string>() } = $props();
 
   function changeTheme(): void {
     if (theme == "light") {

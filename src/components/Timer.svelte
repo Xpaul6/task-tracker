@@ -23,7 +23,7 @@
   let isGoing = $state<boolean>(false);
   let stateSwitchCounter = $state<number>(1);
   let timerTitle = $state<string>("Focus");
-  let { formatedTimerString = $bindable<string>(), ...props } = $props();
+  let { formatedTimerString = $bindable<string>() } = $props();
 
   // functions
   function formatTime(s: number): string {

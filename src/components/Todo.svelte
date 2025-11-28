@@ -15,7 +15,7 @@
   let tasksAmount = $derived<number>(
     taskList.filter((task) => !task.completed).length,
   );
-  let { tasksRemaining = $bindable<string>(), ...props } = $props();
+  let { tasksRemaining = $bindable<string>() } = $props();
   let currentInput = $state<string>("");
 
   function init() {

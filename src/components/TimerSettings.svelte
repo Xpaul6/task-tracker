@@ -4,8 +4,7 @@
   let {
     focusInterval = $bindable<number>(),
     shortPauseInterval = $bindable<number>(),
-    longPauseInterval = $bindable<number>(),
-    ...props
+    longPauseInterval = $bindable<number>()
   } = $props();
 
   let displayFocusInterval = $derived<number>(focusInterval / 60);
